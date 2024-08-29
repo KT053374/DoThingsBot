@@ -1,5 +1,6 @@
 # About
 A tinker/buff/portal bot plugin.
+Ripped from https://gitlab.com/trevis/dothingsbot
 
 # Contributors
 Schubaal
