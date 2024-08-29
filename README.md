@@ -1,9 +1,12 @@
 # About
 A tinker/buff/portal bot plugin.
+
 Ripped from https://gitlab.com/trevis/dothingsbot
 
 # Contributors
 Schubaal
+
+Trevis
 
 # Installation:
  - Requires Decal / Virindi View System (comes with virindi bundle)
