@@ -118,9 +118,10 @@ namespace DoThingsBot {
                 Globals.ProfileManagerView.ReloadProfiles();
 
                 UpdateChecker.CheckForUpdate();
+                RecipeUpdater.CheckForUpdate();
             }
             catch (Exception ex) { Util.LogException(ex); }
-		}
+                }
 
         [BaseEvent("Logoff", "CharacterFilter")]
         private void CharacterFilter_Logoff(object sender, Decal.Adapter.Wrappers.LogoffEventArgs e) {

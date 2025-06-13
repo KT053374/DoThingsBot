@@ -30,6 +30,7 @@ See [BUILDING.md](BUILDING.md) for prerequisites and detailed build steps.
  
 # Recipes
 - Recipes are stored in <install_dir>/Resources/recipes.xml
+- The plugin automatically updates recipes from the repository on startup
 - [Supported recipes](https://gitlab.com/trevis/dothingsbot/wikis/recipes)
 
 # Screenshots
