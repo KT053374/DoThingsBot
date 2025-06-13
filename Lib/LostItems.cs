@@ -1,4 +1,4 @@
-﻿using Decal.Adapter;
+using Decal.Adapter;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

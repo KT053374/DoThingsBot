@@ -1,4 +1,4 @@
-﻿using Decal.Adapter;
+using Decal.Adapter;
 using Decal.Filters;
 using DoThingsBot.Lib;
 using System;

@@ -1,4 +1,4 @@
-﻿using Decal.Adapter;
+using Decal.Adapter;
 using Decal.Adapter.Wrappers;
 using DoThingsBot.Lib.Recipes;
 using Newtonsoft.Json;

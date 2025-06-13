@@ -1,4 +1,4 @@
-﻿using DoThingsBot;
+using DoThingsBot;
 using System;
 using System.Collections.Generic;
 

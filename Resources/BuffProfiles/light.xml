@@ -1,4 +1,4 @@
-﻿<profile name="light" aliases="lw lightweapons">
+<profile name="light" aliases="lw lightweapons">
   <spell family="LIGHT_WEAPON_MASTERY" />
   <spell family="DUAL_WIELD_MASTERY" />
   <spell family="SHIELD_MASTERY" />

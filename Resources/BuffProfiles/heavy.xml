@@ -1,4 +1,4 @@
-﻿<profile name="heavy" aliases="hw heavyweapons">
+<profile name="heavy" aliases="hw heavyweapons">
   <spell family="HEAVY_WEAPON_MASTERY" />
   <spell family="DUAL_WIELD_MASTERY" />
   <spell family="SHIELD_MASTERY" />

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <view icon="9496" title="DoThingsBot - Confirm" width="180" height="145">
       <control progid="DecalControls.FixedLayout" clipped="">
         <control progid="DecalControls.StaticText" name="UIConfirmHeading" left="10" top="10" width="180" height="80" text="Confirm message..."/>
