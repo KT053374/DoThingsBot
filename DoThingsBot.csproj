@@ -118,6 +118,7 @@
     <Compile Include="Lib\Recipes\Recipes.cs" />
     <Compile Include="Lib\Recipes\RecipeStep.cs" />
     <Compile Include="Lib\UpdateChecker.cs" />
+    <Compile Include="Lib\RecipeUpdater.cs" />
     <Compile Include="Lib\User32.cs" />
     <Compile Include="MagTools\Shared\Settings\Setting.cs" />
     <Compile Include="MagTools\Shared\Settings\SettingsFile.cs" />

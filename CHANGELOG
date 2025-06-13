@@ -1,4 +1,6 @@
 CHANGELOG
+2.0.0.8
+* Automatically update recipes.xml from the repository at startup
 2.0.0.7
 * Detect newly learned spells without restarting the plugin.
 2.0.0.6
