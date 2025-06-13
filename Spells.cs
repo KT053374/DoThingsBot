@@ -376,6 +376,11 @@ namespace DoThingsBot {
         }
 
         private static Dictionary<SpellClass, Spell> exampleSpellClassCache = new Dictionary<SpellClass, Spell>();
+        
+        public static void ClearSpellCaches() {
+            exampleSpellClassCache.Clear();
+            _spellLevels.Clear();
+        }
 
         internal static Spell GetExampleSpellByClass(SpellClass family) {
             Spell exampleSpell = null;

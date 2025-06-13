@@ -28,7 +28,7 @@ See [BUILDING.md](BUILDING.md) for prerequisites and detailed build steps.
  - TODO, but hopefully fairly self explanitory.
 
 # Known Issues
- - You must relog the bot after learning spells (from professors at least, untested with scrolls)
+ - The bot now detects newly learned spells without needing a relog.
  - The bot does not work if the ac window is minimized.  It does not have to be in focus.
 
 # Recipes
