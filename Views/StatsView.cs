@@ -289,7 +289,10 @@ namespace DoThingsBot.Views {
             try {
                 control = (HudStaticText)view[viewKey];
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                Util.LogException(ex);
+            }
 
             var headerHeight = lineHeight;
 
@@ -332,7 +335,10 @@ namespace DoThingsBot.Views {
             try {
                 text = (HudStaticText)view[viewKey];
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                Util.LogException(ex);
+            }
 
             var rowHeight = lineHeight + 2;
 
@@ -393,7 +399,10 @@ namespace DoThingsBot.Views {
             try {
                 list = (HudList)view[viewKey];
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                Util.LogException(ex);
+            }
 
             if (list == null) {
                 list = new HudList();

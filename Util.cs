@@ -225,7 +225,10 @@ namespace DoThingsBot
                             }
                         }
                     }
-                    catch (Exception ex) { }
+                    catch (Exception ex)
+                    {
+                        Util.LogException(ex);
+                    }
                 }
             }
             catch (Exception ex) { Util.LogException(ex); return false; }
