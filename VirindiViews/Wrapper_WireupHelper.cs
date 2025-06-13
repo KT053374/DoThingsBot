@@ -251,7 +251,10 @@ namespace MyClasses.MetaViewWrappers
                         {
                             mycontrol = v[attr.Control];
                         }
-                        catch { }
+                        catch (Exception ex)
+                        {
+                            Util.LogException(ex);
+                        }
                         if (mycontrol != null)
                             break;
                     }
@@ -301,7 +304,10 @@ namespace MyClasses.MetaViewWrappers
                         {
                             mycontrol = v[attr.Control];
                         }
-                        catch { }
+                        catch (Exception ex)
+                        {
+                            Util.LogException(ex);
+                        }
                         if (mycontrol != null)
                             break;
                     }

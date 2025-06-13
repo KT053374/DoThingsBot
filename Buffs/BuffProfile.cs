@@ -74,7 +74,10 @@ namespace DoThingsBot.Buffs {
                     }
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                Util.LogException(ex);
+            }
         }
 
         private void OnTreeStatsProfileComplete(IAsyncResult result) {
@@ -91,7 +94,10 @@ namespace DoThingsBot.Buffs {
 
                         isValid = true;
                     }
-                    catch (Exception ex) { }
+                    catch (Exception ex)
+                    {
+                        Util.LogException(ex);
+                    }
                 }
             }
             catch (Exception ex) {
@@ -327,7 +333,10 @@ namespace DoThingsBot.Buffs {
                             continue;
                         }
                     }
-                    catch (Exception ex) { }
+                    catch (Exception ex)
+                    {
+                        Util.LogException(ex);
+                    }
 
                     if (spellClass != Spells.SpellClass.UNKNOWN) {
                         if (!familyIds.Contains(spellClass)) {
