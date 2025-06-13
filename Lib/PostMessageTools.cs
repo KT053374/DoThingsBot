@@ -8,6 +8,13 @@ namespace DoThingsBot.Lib {
     public static class PostMessageTools {
         // http://msdn.microsoft.com/en-us/library/dd375731%28v=vs.85%29.aspx
 
+        private static void RestoreIfMinimized() {
+            var hwnd = CoreManager.Current.Decal.Hwnd;
+            if (User32.IsIconic(hwnd)) {
+                User32.ShowWindow(hwnd, User32.SW_RESTORE);
+            }
+        }
+
         private const byte VK_RETURN = 0x0D;
         private const byte VK_SHIFT = 0x10;
         private const byte VK_CONTROL = 0x11;
@@ -83,16 +90,19 @@ namespace DoThingsBot.Lib {
         }
 
         public static void SendEnter() {
+            RestoreIfMinimized();
             User32.PostMessage(CoreManager.Current.Decal.Hwnd, User32.WM_KEYDOWN, (IntPtr)VK_RETURN, (UIntPtr)0x001C0001);
             User32.PostMessage(CoreManager.Current.Decal.Hwnd, User32.WM_KEYUP, (IntPtr)VK_RETURN, (UIntPtr)0xC01C0001);
         }
 
         public static void SendPause() {
+            RestoreIfMinimized();
             User32.PostMessage(CoreManager.Current.Decal.Hwnd, User32.WM_KEYDOWN, (IntPtr)VK_PAUSE, (UIntPtr)0x00450001);
             User32.PostMessage(CoreManager.Current.Decal.Hwnd, User32.WM_KEYUP, (IntPtr)VK_PAUSE, (UIntPtr)0xC0450001);
         }
 
         public static void SendAltF4() {
+            RestoreIfMinimized();
             User32.PostMessage(CoreManager.Current.Decal.Hwnd, User32.WM_DESTROY, new IntPtr(0), new UIntPtr(0));
         }
 
@@ -106,6 +116,7 @@ namespace DoThingsBot.Lib {
         static bool _spaceAddC;
 
         public static void SendSpace(int msToHoldDown = 0, bool addShift = false, bool addW = false, bool addZ = false, bool addX = false, bool addC = false) {
+            RestoreIfMinimized();
             User32.PostMessage(CoreManager.Current.Decal.Hwnd, User32.WM_KEYDOWN, (IntPtr)VK_SPACE, (UIntPtr)0x00390001);
             if (msToHoldDown == 0) {
                 if (addShift) User32.PostMessage(CoreManager.Current.Decal.Hwnd, User32.WM_KEYDOWN, (IntPtr)VK_SHIFT, (UIntPtr)0x002A0001);
@@ -139,6 +150,7 @@ namespace DoThingsBot.Lib {
         }
 
         static void SpaceReleaseTimer_Tick(object sender, EventArgs e) {
+            RestoreIfMinimized();
             if (_spaceSendTime.AddMilliseconds(_spaceHoldTimeMilliseconds) <= DateTime.UtcNow) {
                 _spaceReleaseTimer.Stop();
                 if (_spaceAddShift) User32.PostMessage(CoreManager.Current.Decal.Hwnd, User32.WM_KEYDOWN, (IntPtr)VK_SHIFT, (UIntPtr)0x002A0001);
@@ -161,6 +173,7 @@ namespace DoThingsBot.Lib {
         static char _movementKey;
 
         public static void SendMovement(char ch, int msToHoldDown = 0) {
+            RestoreIfMinimized();
             User32.PostMessage(CoreManager.Current.Decal.Hwnd, User32.WM_KEYDOWN, (IntPtr)CharCode(ch), (UIntPtr)(0x00000001 + ScanCode(ch) * 0x10000));
             if (msToHoldDown == 0) {
                 User32.PostMessage(CoreManager.Current.Decal.Hwnd, User32.WM_KEYUP, (IntPtr)CharCode(ch), (UIntPtr)(0xC0000001 + ScanCode(ch) * 0x10000));
@@ -180,6 +193,7 @@ namespace DoThingsBot.Lib {
         }
 
         static void MovementReleaseTimer_Tick(object sender, EventArgs e) {
+            RestoreIfMinimized();
             if (_movementSendTime.AddMilliseconds(_movementHoldTimeMilliseconds) <= DateTime.Now) {
                 _movementReleaseTimer.Stop();
                 User32.PostMessage(CoreManager.Current.Decal.Hwnd, User32.WM_KEYUP, (IntPtr)CharCode(_movementKey), (UIntPtr)(0xC0000001 + ScanCode(_movementKey) * 0x10000));
@@ -187,6 +201,7 @@ namespace DoThingsBot.Lib {
         }
 
         public static void SendCntrl(char ch) {
+            RestoreIfMinimized();
             User32.PostMessage(CoreManager.Current.Decal.Hwnd, User32.WM_KEYDOWN, (IntPtr)VK_CONTROL, (UIntPtr)0x001D0001);
             User32.PostMessage(CoreManager.Current.Decal.Hwnd, User32.WM_KEYDOWN, (IntPtr)CharCode(ch), (UIntPtr)0x00100001);
             User32.PostMessage(CoreManager.Current.Decal.Hwnd, User32.WM_KEYUP, (IntPtr)CharCode(ch), (UIntPtr)0xC0100001);
@@ -197,6 +212,7 @@ namespace DoThingsBot.Lib {
         /// Opens/Closes fellowship view
         /// </summary>
         public static void SendF4() {
+            RestoreIfMinimized();
             User32.PostMessage(CoreManager.Current.Decal.Hwnd, User32.WM_KEYDOWN, (IntPtr)0x00000073, (UIntPtr)0x003E0001);
             User32.PostMessage(CoreManager.Current.Decal.Hwnd, User32.WM_KEYUP, (IntPtr)0x00000073, (UIntPtr)0xC03E0001);
         }
@@ -205,11 +221,13 @@ namespace DoThingsBot.Lib {
         /// Opens/Closes main pack view
         /// </summary>
         public static void SendF12() {
+            RestoreIfMinimized();
             User32.PostMessage(CoreManager.Current.Decal.Hwnd, User32.WM_KEYDOWN, (IntPtr)0x0000007B, (UIntPtr)0x00580001);
             User32.PostMessage(CoreManager.Current.Decal.Hwnd, User32.WM_KEYUP, (IntPtr)0x0000007B, (UIntPtr)0xC0580001);
         }
 
         public static void SendMsg(string msg) {
+            RestoreIfMinimized();
             foreach (char ch in msg) {
                 byte code = CharCode(ch);
                 uint lparam = (uint)((ScanCode(ch) << 0x10) | 1);
@@ -219,6 +237,7 @@ namespace DoThingsBot.Lib {
         }
 
         public static void ClickOK() {
+            RestoreIfMinimized();
             User32.RECT rect = new User32.RECT();
 
             User32.GetWindowRect(CoreManager.Current.Decal.Hwnd, ref rect);
@@ -230,6 +249,7 @@ namespace DoThingsBot.Lib {
         }
 
         public static void ClickYes() {
+            RestoreIfMinimized();
             User32.RECT rect = new User32.RECT();
 
             User32.GetWindowRect(CoreManager.Current.Decal.Hwnd, ref rect);
@@ -243,6 +263,7 @@ namespace DoThingsBot.Lib {
         }
 
         public static void ClickNo() {
+            RestoreIfMinimized();
             User32.RECT rect = new User32.RECT();
 
             User32.GetWindowRect(CoreManager.Current.Decal.Hwnd, ref rect);
@@ -254,6 +275,7 @@ namespace DoThingsBot.Lib {
         }
 
         public static void SendMouseClick(int x, int y) {
+            RestoreIfMinimized();
             int loc = (y * 0x10000) + x;
 
             User32.PostMessage(CoreManager.Current.Decal.Hwnd, User32.WM_MOUSEMOVE, (IntPtr)0x00000000, (UIntPtr)loc);

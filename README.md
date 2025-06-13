@@ -17,7 +17,7 @@ Trevis
 See [BUILDING.md](BUILDING.md) for prerequisites and detailed build steps.
     
 # How to use:
- - The AC window cannot be minimized while the bot is running.
+ - The bot will automatically restore the AC window if it becomes minimized.
 
  - UseCraftSuccessDialog should be set to on.
     -  Run `/config UseCraftSuccessDialog on` in the chat window.
@@ -26,10 +26,9 @@ See [BUILDING.md](BUILDING.md) for prerequisites and detailed build steps.
         - The server admin will need to run the following command to turn player_config_command on.
             - `/modifybool player_config_command true`
  - TODO, but hopefully fairly self explanitory.
-
-# Known Issues
- - The bot now detects newly learned spells without needing a relog.
- - The bot does not work if the ac window is minimized.  It does not have to be in focus.
+ 
+ - You must relog the bot after learning spells (from professors at least, untested with scrolls)
+ - The AC window does not need to remain in focus. If minimized, it will be restored when needed.
 
 # Recipes
 - Recipes are stored in <install_dir>/Resources/recipes.xml
