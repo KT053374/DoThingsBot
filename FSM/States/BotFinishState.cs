@@ -1,4 +1,4 @@
-﻿using Decal.Adapter;
+using Decal.Adapter;
 using DoThingsBot.Chat;
 using DoThingsBot.Lib;
 using System;

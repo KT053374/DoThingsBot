@@ -1,4 +1,4 @@
-﻿using Decal.Adapter.Wrappers;
+using Decal.Adapter.Wrappers;
 using System;
 using System.Collections.Generic;
 using System.Linq;

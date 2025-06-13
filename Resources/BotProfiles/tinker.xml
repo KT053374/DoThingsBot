@@ -1,4 +1,4 @@
-﻿<profile name="tinker" aliases="">
+<profile name="tinker" aliases="">
   <spell family="CREATURE_ENCHANTMENT_MASTERY" />
   <spell family="FOCUS" />
   <spell family="WILLPOWER" />

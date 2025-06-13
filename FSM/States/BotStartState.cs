@@ -1,4 +1,4 @@
-﻿using DoThingsBot.Chat;
+using DoThingsBot.Chat;
 using System;
 using System.Collections.Generic;
 using System.Text;

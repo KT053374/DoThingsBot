@@ -1,4 +1,4 @@
-﻿<profile name="trades" aliases="">
+<profile name="trades" aliases="">
   <spell profile="xpchain" />
   <spell family="STRENGTH" />
   <spell family="ENDURANCE" />
