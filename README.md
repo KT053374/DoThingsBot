@@ -26,8 +26,7 @@ See [BUILDING.md](BUILDING.md) for prerequisites and detailed build steps.
         - The server admin will need to run the following command to turn player_config_command on.
             - `/modifybool player_config_command true`
  - TODO, but hopefully fairly self explanitory.
-
-# Known Issues
+ 
  - You must relog the bot after learning spells (from professors at least, untested with scrolls)
  - The AC window does not need to remain in focus. If minimized, it will be restored when needed.
 

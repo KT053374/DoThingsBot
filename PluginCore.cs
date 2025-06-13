@@ -52,9 +52,10 @@ namespace DoThingsBot {
 
                 CoreManager.Current.PluginInitComplete += new EventHandler<EventArgs>(Current_PluginInitComplete);
                 CoreManager.Current.CommandLineText += new EventHandler<ChatParserInterceptEventArgs>(Current_CommandLineText);
+                CoreManager.Current.CharacterFilter.SpellbookChanged += new EventHandler(Current_SpellbookChanged);
             }
-			catch (Exception ex) { Util.LogException(ex); }
-		}
+                        catch (Exception ex) { Util.LogException(ex); }
+                }
 
 		/// <summary>
 		/// This is called when the plugin is shut down. This happens only once.
@@ -64,6 +65,7 @@ namespace DoThingsBot {
 			try {
                 CoreManager.Current.PluginInitComplete -= new EventHandler<EventArgs>(Current_PluginInitComplete);
                 CoreManager.Current.CommandLineText -= new EventHandler<ChatParserInterceptEventArgs>(Current_CommandLineText);
+                CoreManager.Current.CharacterFilter.SpellbookChanged -= new EventHandler(Current_SpellbookChanged);
 
                 if (bot != null) bot.Dispose();
                 if (mainView != null) mainView.Dispose();
@@ -134,6 +136,13 @@ namespace DoThingsBot {
                 if (mainView != null) mainView.Dispose();
 
                 Util.WriteToDebugLog("Logoff");
+            }
+            catch (Exception ex) { Util.LogException(ex); }
+        }
+
+        void Current_SpellbookChanged(object sender, EventArgs e) {
+            try {
+                Spells.ClearSpellCaches();
             }
             catch (Exception ex) { Util.LogException(ex); }
         }
